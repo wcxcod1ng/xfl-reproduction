@@ -24,6 +24,7 @@ bash sys/install.sh
 ## 3. Install PSQL 13
 
 ```shell
+# 使用ubuntu22.04时默认没有13（而是14），可以手动添加对应的列表
 sudo apt install postgresql-13
 sudo locale-gen en_US
 sudo locale-gen en_US.UTF-8
@@ -92,6 +93,8 @@ pip3 install psycopg2-binary
 pip3 install pydot
 ```
 
+可能还会遇到pyenchat找不到服务的问题，需要在系统上安装对应的内容
+
 ```shell
 python3
 import nltk
@@ -121,11 +124,15 @@ Unzip the source code into this directory.
 Then compile it with the following commands.
 
 ```shell
+# at xfl-r folder
 conda deactivate
 cd Tree_Extreme_Classifiers/Tree_Extreme_Classifiers/PfastreXML
+# cd Tree_Extreme_Classifiers/PfastreXML
 make
 mv PfastreXML_train ../../../XFL/res/
+# mv PfastreXML_train ../../XFL/res/
 mv PfastreXML_predict ../../../XFL/res/
+# mv PfastreXML_predict ../../XFL/res/
 ```
 
 ## 7. Download models and tables
@@ -148,3 +155,4 @@ bash minimalTest.sh
 
 Results are inside the directory `XFL/res/minimal-test`.
 
+目前还有的问题是这种方式不会识别GPU（即使有），原因可能是因为安装了tensorflow，但是没有安装对应的CUDA

@@ -21,7 +21,7 @@ class Ghidra():
     def __init__(self, config):
         ABS_PATH = "/".join(os.path.abspath(__file__).split("/")[:-1])
 		
-        self.ghidraSupportDir    = "/opt/ghidra/support/" # Set ghidra support directory <!>
+        self.ghidraSupportDir    = "/root/soft/ghidra_11.3.2_PUBLIC/support" # Set ghidra support directory <!>
         self.ghidraBin           = 'analyzeHeadless'
         self.ghidra              = self.ghidraSupportDir + '/'+ self.ghidraBin
         self.functionboundaryScript = "'FunctionBoundaryList.java'"
